@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+
+START=80
+
+BIN=/usr/sbin/lircd
+RUN=/var/run/lirc
+PID=$RUN/lircd.pid
+
+start() {
+    mkdir -p $RUN
+    $BIN -d /dev/ttyUSB0
+}
+
+stop() {
+    [ -f $PID ] && kill -INT `cat $PID`
+}
