@@ -8,7 +8,7 @@ PID=$RUN/lircd.pid
 
 start() {
     mkdir -p $RUN
-    $BIN -d /dev/ttyUSB0
+    $BIN -l -a -d /dev/ttyUSB0 -H usb_uirt_raw
 }
 
 stop() {
